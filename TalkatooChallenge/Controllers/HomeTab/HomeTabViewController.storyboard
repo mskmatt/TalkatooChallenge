@@ -378,6 +378,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addAmountPaidButton" destination="Cac-MG-7C8" id="xZQ-aZ-ocJ"/>
+                        <outlet property="addTotalButton" destination="drq-9f-bLg" id="GW1-1a-BS5"/>
                         <outlet property="amountPaidLabel" destination="pRM-CO-G19" id="6mY-D4-beR"/>
                         <outlet property="changeDueValueLabel" destination="SyY-ik-JFg" id="4VH-8P-DNN"/>
                         <outlet property="numberOf100sLabel" destination="Vce-Za-ufi" id="7HV-dl-F4T"/>

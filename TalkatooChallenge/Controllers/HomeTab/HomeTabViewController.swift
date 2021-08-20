@@ -10,8 +10,10 @@ import UIKit
 class HomeTabViewController: UIViewController {
     @IBOutlet weak var changeDueValueLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var addTotalButton: UIButton!
     @IBOutlet weak var amountPaidLabel: UILabel!
-    
+    @IBOutlet weak var addAmountPaidButton: UIButton!
+
     @IBOutlet weak var numberOf5sLabel: UILabel!
     @IBOutlet weak var numberOf10sLabel: UILabel!
     @IBOutlet weak var numberOf25sLabel: UILabel!
@@ -39,11 +41,46 @@ class HomeTabViewController: UIViewController {
         let textFieldData = Alert.TextFieldData(placeholder: "Total", keyboardType: .decimalPad)
         let cancelAction = Alert.ActionData(title: "Cancel", style: .cancel, handler: nil)
         let saveAction = Alert.ActionData(title: "Done", style: .default) {
-            self.viewModel.setTotal($0?.text)
+            self.viewModel.setAmountPaid($0?.text)
         }
         let alertData = Alert.Data(title: "Amount Paid", message: "Enter how much your customer paid.", textFieldData: textFieldData, actions: [cancelAction, saveAction])
         Alert.displayAlertWithTextField(in: self, with: alertData)
     }
 
     let viewModel = HomeTabViewModel()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        viewModel.delegate = self
+        configureChangeDueValue()
+        configureTotalView()
+        configureAmountPaidView()
+    }
+
+    func configureChangeDueValue() {
+        changeDueValueLabel.text = viewModel.changeDueString
+    }
+
+    func configureTotalView() {
+        totalLabel.attributedText = viewModel.totalAttributedText
+        addTotalButton.setTitle(viewModel.addTotalButtonTitle, for: .normal)
+    }
+
+    func configureAmountPaidView() {
+        amountPaidLabel.attributedText = viewModel.amountPaidAttributedText
+        addAmountPaidButton.setTitle(viewModel.addAmountPaidButtonTitle, for: .normal)
+    }
+}
+
+extension HomeTabViewController: HomeTabViewModelDelegate {
+    func totalUpdated() {
+        configureTotalView()
+        configureChangeDueValue()
+    }
+
+    func amountPaidUpdated() {
+        configureAmountPaidView()
+        configureChangeDueValue()
+    }
 }

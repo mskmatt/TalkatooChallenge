@@ -5,11 +5,21 @@
 //  Created by mskmatt on 20/08/2021.
 //
 
-import Foundation
+import UIKit
 
 class HomeTabViewModel {
-    var total: Double?
-    var amountPaid: Double?
+    weak var delegate: HomeTabViewModelDelegate?
+
+    private var total: Double? {
+        didSet {
+            delegate?.totalUpdated()
+        }
+    }
+    private var amountPaid: Double? {
+        didSet {
+            delegate?.amountPaidUpdated()
+        }
+    }
     
     var changeDue: Double {
         guard let total = total,
@@ -17,14 +27,61 @@ class HomeTabViewModel {
         else {
             return 0.0
         }
-        return total - amountPaid
+        return amountPaid - total
     }
     
     var changeDueString: String {
         return changeDue.toDollarsString() ?? "$0.00"
     }
 
-    func setTotal(_ totalString: String?) {
-        
+    var totalAttributedText: NSMutableAttributedString {
+        if let total = total?.toDollarsString() {
+            let attributedString = NSMutableAttributedString(string: "Total: ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0)])
+            let boldSection = NSMutableAttributedString(string: total, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15.0)])
+            attributedString.append(boldSection)
+            return attributedString
+        } else {
+            return NSMutableAttributedString(string: "Start by adding total", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0)])
+        }
     }
+
+    var addTotalButtonTitle: String {
+        return total == nil ? "Add Total" : "Edit Total"
+    }
+
+    var amountPaidAttributedText: NSMutableAttributedString {
+        if let amountPaid = amountPaid?.toDollarsString() {
+            let attributedString = NSMutableAttributedString(string: "Paid: ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0)])
+            let boldSection = NSMutableAttributedString(string: amountPaid, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15.0)])
+            attributedString.append(boldSection)
+            return attributedString
+        } else {
+            return NSMutableAttributedString(string: "Then add amount paid", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0)])
+        }
+    }
+
+    var addAmountPaidButtonTitle: String {
+        return total == nil ? "Add Paid" : "Edit Paid"
+    }
+
+    func setTotal(_ totalString: String?) {
+        guard let totalString = totalString else {
+            total = nil
+            return
+        }
+        total = Double(totalString)
+    }
+
+    func setAmountPaid(_ amountPaidString: String?) {
+        guard let amountPaidString = amountPaidString else {
+            amountPaid = nil
+            return
+        }
+        amountPaid = Double(amountPaidString)
+    }
+}
+
+protocol HomeTabViewModelDelegate: AnyObject {
+    func totalUpdated()
+    func amountPaidUpdated()
 }
