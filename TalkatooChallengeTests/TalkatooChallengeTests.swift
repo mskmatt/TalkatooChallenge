@@ -18,16 +18,39 @@ class TalkatooChallengeTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_given0point0Double_whenConvertedToDollarString_thenValidateFormat() throws {
+        let zeroDouble: Double = 0
+        let zeroDollarsString = zeroDouble.toDollarsString()
+        XCTAssertEqual(zeroDollarsString, "$0.00")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_given10982point0Double_whenConvertedToDollarString_thenValidateFormat() throws {
+        let zeroDouble: Double = 10982
+        let zeroDollarsString = zeroDouble.toDollarsString()
+        XCTAssertEqual(zeroDollarsString, "$10,982.00")
     }
 
+    func test_given0point01Double_whenConvertedToDollarString_thenValidateFormat() throws {
+        let zeroDouble: Double = 0.01
+        let zeroDollarsString = zeroDouble.toDollarsString()
+        XCTAssertEqual(zeroDollarsString, "$0.01")
+    }
+
+    func test_given0point001Double_whenConvertedToDollarString_thenValidateFormat() throws {
+        let zeroDouble: Double = 0.001
+        let zeroDollarsString = zeroDouble.toDollarsString()
+        XCTAssertEqual(zeroDollarsString, "$0.00")
+    }
+
+    func test_given0point006Double_whenConvertedToDollarString_thenValidateFormat() throws {
+        let zeroDouble: Double = 0.006
+        let zeroDollarsString = zeroDouble.toDollarsString()
+        XCTAssertEqual(zeroDollarsString, "$0.01")
+    }
+
+    func test_given10point0Double_whenConvertedToDollarString_thenValidateFormat() throws {
+        let zeroDouble: Double = 10
+        let zeroDollarsString = zeroDouble.toDollarsString()
+        XCTAssertEqual(zeroDollarsString, "$10.00")
+    }
 }

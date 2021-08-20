@@ -15,6 +15,11 @@
 		823A95E626CF0D0200F2A6A0 /* TalkatooChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A95E526CF0D0200F2A6A0 /* TalkatooChallengeTests.swift */; };
 		823A95F126CF0D0200F2A6A0 /* TalkatooChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A95F026CF0D0200F2A6A0 /* TalkatooChallengeUITests.swift */; };
 		823A960026CF3EE300F2A6A0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A95FF26CF3EE300F2A6A0 /* TabBarViewController.swift */; };
+		823A960326CFF05500F2A6A0 /* HomeTabViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 823A960226CFF05500F2A6A0 /* HomeTabViewController.storyboard */; };
+		823A960526CFF07000F2A6A0 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960426CFF07000F2A6A0 /* HomeTabViewController.swift */; };
+		823A960726D010F500F2A6A0 /* HomeTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960626D010F500F2A6A0 /* HomeTabViewModel.swift */; };
+		823A960B26D0145A00F2A6A0 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960A26D0145A00F2A6A0 /* DoubleExtensions.swift */; };
+		823A960E26D0246500F2A6A0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960D26D0246500F2A6A0 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		823A95F026CF0D0200F2A6A0 /* TalkatooChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkatooChallengeUITests.swift; sourceTree = "<group>"; };
 		823A95F226CF0D0200F2A6A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		823A95FF26CF3EE300F2A6A0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		823A960226CFF05500F2A6A0 /* HomeTabViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabViewController.storyboard; sourceTree = "<group>"; };
+		823A960426CFF07000F2A6A0 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		823A960626D010F500F2A6A0 /* HomeTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewModel.swift; sourceTree = "<group>"; };
+		823A960A26D0145A00F2A6A0 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		823A960D26D0246500F2A6A0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +109,9 @@
 		823A95CD26CF0CFE00F2A6A0 /* TalkatooChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				823A95FE26CF13AA00F2A6A0 /* TabBar */,
+				823A960C26D0244A00F2A6A0 /* Components */,
+				823A960926D0141100F2A6A0 /* Extensions */,
+				823A960826D013A800F2A6A0 /* Controllers */,
 				823A95CE26CF0CFE00F2A6A0 /* AppDelegate.swift */,
 				823A95D026CF0CFE00F2A6A0 /* SceneDelegate.swift */,
 				823A95D726CF0D0100F2A6A0 /* Assets.xcassets */,
@@ -134,6 +146,41 @@
 				823A95FF26CF3EE300F2A6A0 /* TabBarViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		823A960126CFF01F00F2A6A0 /* HomeTab */ = {
+			isa = PBXGroup;
+			children = (
+				823A960226CFF05500F2A6A0 /* HomeTabViewController.storyboard */,
+				823A960426CFF07000F2A6A0 /* HomeTabViewController.swift */,
+				823A960626D010F500F2A6A0 /* HomeTabViewModel.swift */,
+			);
+			path = HomeTab;
+			sourceTree = "<group>";
+		};
+		823A960826D013A800F2A6A0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				823A960126CFF01F00F2A6A0 /* HomeTab */,
+				823A95FE26CF13AA00F2A6A0 /* TabBar */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		823A960926D0141100F2A6A0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				823A960A26D0145A00F2A6A0 /* DoubleExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		823A960C26D0244A00F2A6A0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				823A960D26D0246500F2A6A0 /* Alert.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +288,7 @@
 			files = (
 				823A95DB26CF0D0100F2A6A0 /* LaunchScreen.storyboard in Resources */,
 				823A95D826CF0D0100F2A6A0 /* Assets.xcassets in Resources */,
+				823A960326CFF05500F2A6A0 /* HomeTabViewController.storyboard in Resources */,
 				823A95D626CF0CFE00F2A6A0 /* TabBarViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +315,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				823A960026CF3EE300F2A6A0 /* TabBarViewController.swift in Sources */,
+				823A960726D010F500F2A6A0 /* HomeTabViewModel.swift in Sources */,
+				823A960E26D0246500F2A6A0 /* Alert.swift in Sources */,
+				823A960526CFF07000F2A6A0 /* HomeTabViewController.swift in Sources */,
 				823A95CF26CF0CFE00F2A6A0 /* AppDelegate.swift in Sources */,
+				823A960B26D0145A00F2A6A0 /* DoubleExtensions.swift in Sources */,
 				823A95D126CF0CFE00F2A6A0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
