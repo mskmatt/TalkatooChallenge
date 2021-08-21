@@ -13,17 +13,13 @@ class HomeTabViewModel {
 
     private var total: Double? {
         didSet {
-            if let changeBreakdown = ChangeBreakdown(changeDue: changeDue) {
-                self.changeBreakdown = changeBreakdown
-            }
+            self.changeBreakdown = ChangeBreakdown(changeDue: changeDue) ?? ChangeBreakdown()
             delegate?.totalUpdated()
         }
     }
     private var amountPaid: Double? {
         didSet {
-            if let changeBreakdown = ChangeBreakdown(changeDue: changeDue) {
-                self.changeBreakdown = changeBreakdown
-            }
+            self.changeBreakdown = ChangeBreakdown(changeDue: changeDue) ?? ChangeBreakdown()
             delegate?.amountPaidUpdated()
         }
     }
@@ -68,7 +64,7 @@ class HomeTabViewModel {
     }
 
     var addAmountPaidButtonTitle: String {
-        return total == nil ? "Add Paid" : "Edit Paid"
+        return amountPaid == nil ? "Add Paid" : "Edit Paid"
     }
 
     func setTotal(_ totalString: String?) {
@@ -85,6 +81,11 @@ class HomeTabViewModel {
             return
         }
         amountPaid = Double(amountPaidString)
+    }
+
+    func reset() {
+        total = nil
+        amountPaid = nil
     }
 }
 

@@ -47,6 +47,10 @@ class HomeTabViewController: UIViewController {
         Alert.displayAlertWithTextField(in: self, with: alertData)
     }
 
+    @IBAction func resetInput(_ sender: Any) {
+        viewModel.reset()
+    }
+
     let viewModel = HomeTabViewModel()
 
     override func viewDidLoad() {
