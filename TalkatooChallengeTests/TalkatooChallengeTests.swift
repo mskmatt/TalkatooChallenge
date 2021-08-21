@@ -53,4 +53,52 @@ class TalkatooChallengeTests: XCTestCase {
         let zeroDollarsString = zeroDouble.toDollarsString()
         XCTAssertEqual(zeroDollarsString, "$10.00")
     }
+
+    func test_given0Dollars_whenCalculateChangeBreakdown_thenValidate() throws {
+        let changeDue: Double = 0
+        let calculatedChangeBreakdown = ChangeBreakdown(changeDue: changeDue)
+        let expectedChangeBreakdown = ChangeBreakdown()
+
+        XCTAssertEqual(calculatedChangeBreakdown, expectedChangeBreakdown)
+    }
+
+    func test_given0Dollars1Cent_whenCalculateChangeBreakdown_thenValidate() throws {
+        let changeDue: Double = 0.01
+        let calculatedChangeBreakdown = ChangeBreakdown(changeDue: changeDue)
+        let expectedChangeBreakdown = ChangeBreakdown(pennies: 1)
+
+        XCTAssertEqual(calculatedChangeBreakdown, expectedChangeBreakdown)
+    }
+
+    func test_given1Dollar_whenCalculateChangeBreakdown_thenValidate() throws {
+        let changeDue: Double = 1
+        let calculatedChangeBreakdown = ChangeBreakdown(changeDue: changeDue)
+        let expectedChangeBreakdown = ChangeBreakdown(loonies: 1)
+
+        XCTAssertEqual(calculatedChangeBreakdown, expectedChangeBreakdown)
+    }
+
+    func test_given3Dollars3Cents_whenCalculateChangeBreakdown_thenValidate() throws {
+        let changeDue: Double = 3.03
+        let calculatedChangeBreakdown = ChangeBreakdown(changeDue: changeDue)
+        let expectedChangeBreakdown = ChangeBreakdown(pennies: 3, loonies: 1, toonies: 1)
+
+        XCTAssertEqual(calculatedChangeBreakdown, expectedChangeBreakdown)
+    }
+
+    func test_given356Dollars34Cents_whenCalculateChangeBreakdown_thenValidate() throws {
+        let changeDue: Double = 356.34
+        let calculatedChangeBreakdown = ChangeBreakdown(changeDue: changeDue)
+        let expectedChangeBreakdown = ChangeBreakdown(fives: 1, fifties: 1, hundreds: 3, pennies: 4, nickles: 1, quarters: 1, loonies: 1)
+
+        XCTAssertEqual(calculatedChangeBreakdown, expectedChangeBreakdown)
+    }
+
+    func test_given0Dollars35Cents_whenCalculateChangeBreakdown_thenValidate() throws {
+        let changeDue: Double = 0.35
+        let calculatedChangeBreakdown = ChangeBreakdown(changeDue: changeDue)
+        let expectedChangeBreakdown = ChangeBreakdown(dimes: 1, quarters: 1)
+
+        XCTAssertEqual(calculatedChangeBreakdown, expectedChangeBreakdown)
+    }
 }
