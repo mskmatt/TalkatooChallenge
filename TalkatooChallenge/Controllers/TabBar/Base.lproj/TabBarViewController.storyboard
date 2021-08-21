@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TalkatooChallenge" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                             <constraint firstItem="4Xx-UL-KIb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m9S-b9-ato"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="O5y-GB-cdQ"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="homeIcon" id="O5y-GB-cdQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,35 +46,93 @@
             </objects>
             <point key="canvasLocation" x="-1822" y="633"/>
         </scene>
-        <!--Item 2-->
+        <!--History-->
         <scene sceneID="2Ig-Tj-sMV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H6H-gk-CVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Vnx-te-Znu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0mT-hd-CJA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0c-es-ZEv">
+                                <rect key="frame" x="161" y="410.5" width="92.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zjW-zP-2qX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="u0c-es-ZEv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zjW-zP-2qX" secondAttribute="leading" constant="10" id="IWR-AV-zMR"/>
+                            <constraint firstItem="u0c-es-ZEv" firstAttribute="centerY" secondItem="zjW-zP-2qX" secondAttribute="centerY" id="LIh-lV-5eB"/>
+                            <constraint firstItem="u0c-es-ZEv" firstAttribute="centerX" secondItem="zjW-zP-2qX" secondAttribute="centerX" id="W1h-Fs-BDw"/>
+                            <constraint firstItem="zjW-zP-2qX" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u0c-es-ZEv" secondAttribute="trailing" constant="10" id="bup-1e-C0j"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="SOE-Vq-Dh4"/>
+                    <tabBarItem key="tabBarItem" title="History" image="historyIcon" id="SOE-Vq-Dh4"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6H-gk-CVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-345" y="232"/>
         </scene>
-        <!--Item 1-->
+        <!--Settings-->
+        <scene sceneID="m0Y-W6-XcU">
+            <objects>
+                <viewController id="tE9-jE-uKm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LmQ-lR-9zL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnz-FM-3IM">
+                                <rect key="frame" x="153.5" y="410.5" width="107" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4mO-jQ-3ID"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jnz-FM-3IM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4mO-jQ-3ID" secondAttribute="leading" constant="10" id="9Jv-vo-GOJ"/>
+                            <constraint firstItem="jnz-FM-3IM" firstAttribute="centerX" secondItem="4mO-jQ-3ID" secondAttribute="centerX" id="HfY-XM-fME"/>
+                            <constraint firstItem="4mO-jQ-3ID" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jnz-FM-3IM" secondAttribute="trailing" constant="10" id="KBx-FF-rMC"/>
+                            <constraint firstItem="jnz-FM-3IM" firstAttribute="centerY" secondItem="4mO-jQ-3ID" secondAttribute="centerY" id="jCH-el-CMk"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" id="fhO-9K-39P"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pLs-Ji-7ZR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="462" y="232"/>
+        </scene>
+        <!--Other Menu Item-->
         <scene sceneID="ns1-bd-WRN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mvx-7p-yOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="iZK-jd-t4R" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t7z-gd-AVA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Menu Item" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgT-Gy-5qa">
+                                <rect key="frame" x="98.5" y="410.5" width="217" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7C3-C1-YIn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cgT-Gy-5qa" firstAttribute="centerX" secondItem="7C3-C1-YIn" secondAttribute="centerX" id="5KS-Xs-K6e"/>
+                            <constraint firstItem="cgT-Gy-5qa" firstAttribute="centerY" secondItem="7C3-C1-YIn" secondAttribute="centerY" id="6dA-ph-0fc"/>
+                            <constraint firstItem="cgT-Gy-5qa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7C3-C1-YIn" secondAttribute="leading" constant="10" id="LjC-dJ-xNd"/>
+                            <constraint firstItem="7C3-C1-YIn" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cgT-Gy-5qa" secondAttribute="trailing" constant="10" id="e4p-es-YUe"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="rNi-DS-ady"/>
+                    <tabBarItem key="tabBarItem" title="Other Menu Item" image="otherMenuItemIcon" id="rNi-DS-ady"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mvx-7p-yOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1087" y="232"/>
         </scene>
@@ -91,6 +149,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="mjb-Sg-kuT"/>
                         <segue destination="iZK-jd-t4R" kind="relationship" relationship="viewControllers" id="mKF-Vx-6dX"/>
                         <segue destination="Vnx-te-Znu" kind="relationship" relationship="viewControllers" id="mZs-eW-QLN"/>
+                        <segue destination="tE9-jE-uKm" kind="relationship" relationship="viewControllers" id="IyE-FX-0ub"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otl-Cc-wdE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -99,6 +158,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Settings" width="19" height="20"/>
+        <image name="historyIcon" width="21" height="18"/>
+        <image name="homeIcon" width="23" height="21"/>
+        <image name="otherMenuItemIcon" width="17" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

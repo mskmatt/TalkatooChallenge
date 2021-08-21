@@ -21,6 +21,7 @@
 		823A960B26D0145A00F2A6A0 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960A26D0145A00F2A6A0 /* DoubleExtensions.swift */; };
 		823A960E26D0246500F2A6A0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960D26D0246500F2A6A0 /* Alert.swift */; };
 		823A961126D0616B00F2A6A0 /* ChangeBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A961026D0616B00F2A6A0 /* ChangeBreakdown.swift */; };
+		829547D826D143B900C5DC75 /* UITabBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829547D726D143B900C5DC75 /* UITabBarExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		823A960A26D0145A00F2A6A0 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		823A960D26D0246500F2A6A0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		823A961026D0616B00F2A6A0 /* ChangeBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBreakdown.swift; sourceTree = "<group>"; };
+		829547D726D143B900C5DC75 /* UITabBarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				823A960A26D0145A00F2A6A0 /* DoubleExtensions.swift */,
+				829547D726D143B900C5DC75 /* UITabBarExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				823A960026CF3EE300F2A6A0 /* TabBarViewController.swift in Sources */,
+				829547D826D143B900C5DC75 /* UITabBarExtensions.swift in Sources */,
 				823A960726D010F500F2A6A0 /* HomeTabViewModel.swift in Sources */,
 				823A960E26D0246500F2A6A0 /* Alert.swift in Sources */,
 				823A961126D0616B00F2A6A0 /* ChangeBreakdown.swift in Sources */,
