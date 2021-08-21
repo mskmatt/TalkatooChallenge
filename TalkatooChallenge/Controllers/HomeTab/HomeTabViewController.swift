@@ -16,7 +16,7 @@ class HomeTabViewController: UIViewController {
 
     @IBOutlet weak var numberOf5sLabel: UILabel!
     @IBOutlet weak var numberOf10sLabel: UILabel!
-    @IBOutlet weak var numberOf25sLabel: UILabel!
+    @IBOutlet weak var numberOf20sLabel: UILabel!
     @IBOutlet weak var numberOf50sLabel: UILabel!
     @IBOutlet weak var numberOf100sLabel: UILabel!
     
@@ -56,6 +56,8 @@ class HomeTabViewController: UIViewController {
         configureChangeDueValue()
         configureTotalView()
         configureAmountPaidView()
+        configureBillsDueView()
+        configureCoinsDueView()
     }
 
     func configureChangeDueValue() {
@@ -71,16 +73,37 @@ class HomeTabViewController: UIViewController {
         amountPaidLabel.attributedText = viewModel.amountPaidAttributedText
         addAmountPaidButton.setTitle(viewModel.addAmountPaidButtonTitle, for: .normal)
     }
+
+    func configureBillsDueView() {
+        numberOf5sLabel.text = "\(viewModel.changeBreakdown.fives)"
+        numberOf10sLabel.text = "\(viewModel.changeBreakdown.tens)"
+        numberOf20sLabel.text = "\(viewModel.changeBreakdown.twenties)"
+        numberOf50sLabel.text = "\(viewModel.changeBreakdown.fifties)"
+        numberOf100sLabel.text = "\(viewModel.changeBreakdown.hundreds)"
+    }
+
+    func configureCoinsDueView() {
+        numberOfPenniesLabel.text = "\(viewModel.changeBreakdown.pennies)"
+        numberOfNickelsLabel.text = "\(viewModel.changeBreakdown.nickles)"
+        numberOfDimesLabel.text = "\(viewModel.changeBreakdown.dimes)"
+        numberOfQuartersLabel.text = "\(viewModel.changeBreakdown.quarters)"
+        numberOfLooniesLabel.text = "\(viewModel.changeBreakdown.loonies)"
+        numberOfTooniesLabel.text = "\(viewModel.changeBreakdown.toonies)"
+    }
 }
 
 extension HomeTabViewController: HomeTabViewModelDelegate {
     func totalUpdated() {
         configureTotalView()
         configureChangeDueValue()
+        configureBillsDueView()
+        configureCoinsDueView()
     }
 
     func amountPaidUpdated() {
         configureAmountPaidView()
         configureChangeDueValue()
+        configureBillsDueView()
+        configureCoinsDueView()
     }
 }

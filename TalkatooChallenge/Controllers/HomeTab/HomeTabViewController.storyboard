@@ -384,7 +384,7 @@
                         <outlet property="changeDueValueLabel" destination="SyY-ik-JFg" id="4VH-8P-DNN"/>
                         <outlet property="numberOf100sLabel" destination="Vce-Za-ufi" id="7HV-dl-F4T"/>
                         <outlet property="numberOf10sLabel" destination="iei-B3-Xzt" id="jwo-J8-f8O"/>
-                        <outlet property="numberOf25sLabel" destination="ro5-sf-sEE" id="fZC-S6-7Ee"/>
+                        <outlet property="numberOf20sLabel" destination="ro5-sf-sEE" id="fZC-S6-7Ee"/>
                         <outlet property="numberOf50sLabel" destination="sfG-b7-twj" id="QK1-WL-muL"/>
                         <outlet property="numberOf5sLabel" destination="s4H-9g-Pmb" id="GGf-Ve-kuw"/>
                         <outlet property="numberOfDimesLabel" destination="dQd-03-G4Z" id="ytY-Xv-lqb"/>

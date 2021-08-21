@@ -9,14 +9,21 @@ import UIKit
 
 class HomeTabViewModel {
     weak var delegate: HomeTabViewModelDelegate?
+    var changeBreakdown = ChangeBreakdown()
 
     private var total: Double? {
         didSet {
+            if let changeBreakdown = ChangeBreakdown(changeDue: changeDue) {
+                self.changeBreakdown = changeBreakdown
+            }
             delegate?.totalUpdated()
         }
     }
     private var amountPaid: Double? {
         didSet {
+            if let changeBreakdown = ChangeBreakdown(changeDue: changeDue) {
+                self.changeBreakdown = changeBreakdown
+            }
             delegate?.amountPaidUpdated()
         }
     }

@@ -101,4 +101,12 @@ class TalkatooChallengeTests: XCTestCase {
 
         XCTAssertEqual(calculatedChangeBreakdown, expectedChangeBreakdown)
     }
+
+    func test_givenNegative_whenCalculateChangeBreakdown_thenValidate() throws {
+        let changeDue: Double = -10.35
+        let calculatedChangeBreakdown = ChangeBreakdown(changeDue: changeDue)
+        let expectedChangeBreakdown: ChangeBreakdown? = nil
+
+        XCTAssertEqual(calculatedChangeBreakdown, expectedChangeBreakdown)
+    }
 }

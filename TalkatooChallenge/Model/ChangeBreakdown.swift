@@ -50,15 +50,20 @@ struct ChangeBreakdown: Equatable {
     }
 
     init?(changeDue: Double) {
-        let denominationsUsed = getDenominationsUsed(changeDue: changeDue)
-        guard populateDenominationsUsed(with: denominationsUsed) else {
+        guard let denominationsUsed = getDenominationsUsed(changeDue: changeDue),
+              populateDenominationsUsed(with: denominationsUsed)
+        else {
             return nil
         }
     }
 
-    private func getDenominationsUsed(changeDue: Double) -> [DenominationInCents?] {
+    private func getDenominationsUsed(changeDue: Double) -> [DenominationInCents?]? {
         // Assume changeDue has just two decimal places
         let changeDueInCents = Int(changeDue * 100)
+
+        guard changeDueInCents >= 0 else {
+            return nil
+        }
 
         var possibleStepsArray: [Int] = Array.init(repeating: Int.max, count: changeDueInCents + 1)
         possibleStepsArray[0] = 0
