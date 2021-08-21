@@ -117,4 +117,12 @@ class TalkatooChallengeTests: XCTestCase {
 
         XCTAssertEqual(calculatedChangeBreakdown, expectedChangeBreakdown)
     }
+
+    func test_given1000Dollars_whenCalculateChangeBreakdown_thenValidate() throws {
+        let changeDue: Decimal = 1000
+        let calculatedChangeBreakdown = ChangeBreakdown(changeDue: changeDue)
+        let expectedChangeBreakdown: ChangeBreakdown? = ChangeBreakdown(hundreds: 10)
+
+        XCTAssertEqual(calculatedChangeBreakdown, expectedChangeBreakdown)
+    }
 }

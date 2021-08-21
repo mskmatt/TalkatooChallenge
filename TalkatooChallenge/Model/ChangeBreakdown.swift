@@ -57,17 +57,23 @@ struct ChangeBreakdown: Equatable {
         }
     }
 
-    private func getDenominationsUsed(changeDue: Decimal) -> [DenominationInCents?]? {
+    private mutating func getDenominationsUsed(changeDue: Decimal) -> [DenominationInCents?]? {
         // Assume changeDue has just two decimal places
-        let changeDueInCents = NSDecimalNumber(decimal: changeDue * 100).intValue
+        var changeDueInCents = NSDecimalNumber(decimal: changeDue * 100).intValue
 
         guard changeDueInCents >= 0 else {
             return nil
         }
 
-        var possibleStepsArray: [Int] = Array.init(repeating: Int.max, count: changeDueInCents + 1)
-        possibleStepsArray[0] = 0
-        var denominationsUsed: [DenominationInCents?] = Array.init(repeating: nil, count: changeDueInCents + 1)
+        // Take out the 100s to improve efficieny
+        if changeDueInCents > 10000 {
+            hundreds = changeDueInCents / 10000
+            changeDueInCents %= 10000
+        }
+
+        var minDenominationsToTotalArray: [Int] = Array.init(repeating: Int.max, count: changeDueInCents + 1)
+        minDenominationsToTotalArray[0] = 0
+        var denominationsUsedToReachTotal: [DenominationInCents?] = Array.init(repeating: nil, count: changeDueInCents + 1)
 
         for targetTotal in 0...changeDueInCents {
             for denomination in DenominationInCents.allCases {
@@ -75,14 +81,16 @@ struct ChangeBreakdown: Equatable {
                     // since DenominationInCents.allCases is sorted don't need to check any values larger than the target total
                     break
                 }
-                possibleStepsArray[targetTotal] = min(possibleStepsArray[targetTotal], possibleStepsArray[targetTotal - denomination.rawValue] + 1)
-                if possibleStepsArray[targetTotal] == possibleStepsArray[targetTotal - denomination.rawValue] + 1 {
-                    denominationsUsed[targetTotal] = denomination
+
+                let minDenominationsIfUsingCurrentDenominationNext = minDenominationsToTotalArray[targetTotal - denomination.rawValue] + 1
+                if minDenominationsToTotalArray[targetTotal] > minDenominationsIfUsingCurrentDenominationNext {
+                    minDenominationsToTotalArray[targetTotal] = minDenominationsIfUsingCurrentDenominationNext
+                    denominationsUsedToReachTotal[targetTotal] = denomination
                 }
             }
         }
 
-        return denominationsUsed
+        return denominationsUsedToReachTotal
     }
 
     private mutating func populateDenominationsUsed(with denominationsUsed: [DenominationInCents?]) -> Bool {
