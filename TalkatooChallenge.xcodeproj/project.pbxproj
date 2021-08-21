@@ -18,7 +18,7 @@
 		823A960326CFF05500F2A6A0 /* HomeTabViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 823A960226CFF05500F2A6A0 /* HomeTabViewController.storyboard */; };
 		823A960526CFF07000F2A6A0 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960426CFF07000F2A6A0 /* HomeTabViewController.swift */; };
 		823A960726D010F500F2A6A0 /* HomeTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960626D010F500F2A6A0 /* HomeTabViewModel.swift */; };
-		823A960B26D0145A00F2A6A0 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960A26D0145A00F2A6A0 /* DoubleExtensions.swift */; };
+		823A960B26D0145A00F2A6A0 /* DecimalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960A26D0145A00F2A6A0 /* DecimalExtensions.swift */; };
 		823A960E26D0246500F2A6A0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A960D26D0246500F2A6A0 /* Alert.swift */; };
 		823A961126D0616B00F2A6A0 /* ChangeBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A961026D0616B00F2A6A0 /* ChangeBreakdown.swift */; };
 		829547D826D143B900C5DC75 /* UITabBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829547D726D143B900C5DC75 /* UITabBarExtensions.swift */; };
@@ -60,7 +60,7 @@
 		823A960226CFF05500F2A6A0 /* HomeTabViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabViewController.storyboard; sourceTree = "<group>"; };
 		823A960426CFF07000F2A6A0 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		823A960626D010F500F2A6A0 /* HomeTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewModel.swift; sourceTree = "<group>"; };
-		823A960A26D0145A00F2A6A0 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		823A960A26D0145A00F2A6A0 /* DecimalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalExtensions.swift; sourceTree = "<group>"; };
 		823A960D26D0246500F2A6A0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		823A961026D0616B00F2A6A0 /* ChangeBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBreakdown.swift; sourceTree = "<group>"; };
 		829547D726D143B900C5DC75 /* UITabBarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarExtensions.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		823A960926D0141100F2A6A0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				823A960A26D0145A00F2A6A0 /* DoubleExtensions.swift */,
+				823A960A26D0145A00F2A6A0 /* DecimalExtensions.swift */,
 				829547D726D143B900C5DC75 /* UITabBarExtensions.swift */,
 				829547D926D1456A00C5DC75 /* UIViewExtensions.swift */,
 			);
@@ -339,7 +339,7 @@
 				823A960526CFF07000F2A6A0 /* HomeTabViewController.swift in Sources */,
 				829547DA26D1456A00C5DC75 /* UIViewExtensions.swift in Sources */,
 				823A95CF26CF0CFE00F2A6A0 /* AppDelegate.swift in Sources */,
-				823A960B26D0145A00F2A6A0 /* DoubleExtensions.swift in Sources */,
+				823A960B26D0145A00F2A6A0 /* DecimalExtensions.swift in Sources */,
 				823A95D126CF0CFE00F2A6A0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

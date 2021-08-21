@@ -49,7 +49,7 @@ struct ChangeBreakdown: Equatable {
         self.toonies = toonies
     }
 
-    init?(changeDue: Double) {
+    init?(changeDue: Decimal) {
         guard let denominationsUsed = getDenominationsUsed(changeDue: changeDue),
               populateDenominationsUsed(with: denominationsUsed)
         else {
@@ -57,9 +57,9 @@ struct ChangeBreakdown: Equatable {
         }
     }
 
-    private func getDenominationsUsed(changeDue: Double) -> [DenominationInCents?]? {
+    private func getDenominationsUsed(changeDue: Decimal) -> [DenominationInCents?]? {
         // Assume changeDue has just two decimal places
-        let changeDueInCents = Int(changeDue * 100)
+        let changeDueInCents = NSDecimalNumber(decimal: changeDue * 100).intValue
 
         guard changeDueInCents >= 0 else {
             return nil

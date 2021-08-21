@@ -1,5 +1,5 @@
 //
-//  DoubleExtensions.swift
+//  DecimalExtensions.swift
 //  TalkatooChallenge
 //
 //  Created by mskmatt on 20/08/2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Double {
+extension Decimal {
     func toDollarsString() -> String? {
         let formatter = NumberFormatter()
         formatter.locale = Locale.current

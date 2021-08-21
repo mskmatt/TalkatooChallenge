@@ -11,20 +11,20 @@ class HomeTabViewModel {
     weak var delegate: HomeTabViewModelDelegate?
     var changeBreakdown = ChangeBreakdown()
 
-    private var total: Double? {
+    private var total: Decimal? {
         didSet {
             self.changeBreakdown = ChangeBreakdown(changeDue: changeDue) ?? ChangeBreakdown()
             delegate?.totalUpdated()
         }
     }
-    private var amountPaid: Double? {
+    private var amountPaid: Decimal? {
         didSet {
             self.changeBreakdown = ChangeBreakdown(changeDue: changeDue) ?? ChangeBreakdown()
             delegate?.amountPaidUpdated()
         }
     }
     
-    var changeDue: Double {
+    var changeDue: Decimal {
         guard let total = total,
               let amountPaid = amountPaid
         else {
@@ -72,7 +72,7 @@ class HomeTabViewModel {
             total = nil
             return
         }
-        total = Double(totalString)
+        total = Decimal(string: totalString)
     }
 
     func setAmountPaid(_ amountPaidString: String?) {
@@ -80,7 +80,7 @@ class HomeTabViewModel {
             amountPaid = nil
             return
         }
-        amountPaid = Double(amountPaidString)
+        amountPaid = Decimal(string: amountPaidString)
     }
 
     func reset() {
