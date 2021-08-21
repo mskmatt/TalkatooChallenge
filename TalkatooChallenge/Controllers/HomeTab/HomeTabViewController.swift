@@ -14,7 +14,9 @@ class HomeTabViewController: UIViewController {
     @IBOutlet weak var addTotalButton: UIButton!
     @IBOutlet weak var amountPaidLabel: UILabel!
     @IBOutlet weak var addAmountPaidButton: UIButton!
+    @IBOutlet weak var amountPaidContainerView: UIView!
 
+    @IBOutlet weak var changeBreakdownTitleLabel: UILabel!
     @IBOutlet weak var numberOf5sLabel: UILabel!
     @IBOutlet weak var numberOf10sLabel: UILabel!
     @IBOutlet weak var numberOf20sLabel: UILabel!
@@ -72,6 +74,52 @@ class HomeTabViewController: UIViewController {
 
     func design() {
         changeDueContainerView.roundCorners(corners: [.topLeft, .topRight], radius: 8)
+        drawBackground()
+    }
+
+    func drawBackground() {
+        let path = UIBezierPath()
+        let amonutPaidBottom = amountPaidContainerView.frame.maxY
+        let changeBreakdownTitleTop = changeBreakdownTitleLabel.frame.minY
+        let horizontalLineY = (amonutPaidBottom + changeBreakdownTitleTop) / 2
+        let arcRadius: CGFloat = 75
+
+        path.move(to: CGPoint(x: 0, y: horizontalLineY - arcRadius))
+        path.addArc(
+            withCenter: CGPoint(x: arcRadius, y: horizontalLineY - arcRadius),
+            radius: arcRadius,
+            startAngle: CGFloat(Double.pi),
+            endAngle: CGFloat(Double.pi/2),
+            clockwise: false
+        )
+        path.addLine(to: CGPoint(x: view.frame.maxX - arcRadius, y: horizontalLineY))
+        path.addArc(
+            withCenter: CGPoint(x: view.frame.maxX - arcRadius, y: horizontalLineY + arcRadius),
+            radius: arcRadius,
+            startAngle: CGFloat(3*Double.pi/2),
+            endAngle: CGFloat(2*Double.pi),
+            clockwise: true
+        )
+        path.addLine(to: CGPoint(x: view.frame.maxX, y: view.frame.maxY))
+        path.addLine(to: CGPoint(x: view.frame.minX, y: view.frame.maxY))
+        path.addLine(to: CGPoint(x: view.frame.minX, y: horizontalLineY - arcRadius))
+
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = UIColor.red.cgColor
+        shapeLayer.frame = view.bounds
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [
+            UIColor(red: 0.627, green: 0.91, blue: 0.651, alpha: 1).cgColor,
+            UIColor(red: 0.925, green: 0.961, blue: 0.894, alpha: 1).cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        gradientLayer.mask = shapeLayer
+
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
     func configureChangeDueValue() {
