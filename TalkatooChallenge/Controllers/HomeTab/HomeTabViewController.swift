@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeTabViewController: UIViewController {
+    @IBOutlet weak var changeDueContainerView: UIView!
     @IBOutlet weak var changeDueValueLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var addTotalButton: UIButton!
@@ -62,6 +63,15 @@ class HomeTabViewController: UIViewController {
         configureAmountPaidView()
         configureBillsDueView()
         configureCoinsDueView()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        design()
+    }
+
+    func design() {
+        changeDueContainerView.roundCorners(corners: [.topLeft, .topRight], radius: 8)
     }
 
     func configureChangeDueValue() {

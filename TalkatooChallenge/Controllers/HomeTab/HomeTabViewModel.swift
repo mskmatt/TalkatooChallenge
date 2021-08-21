@@ -40,7 +40,7 @@ class HomeTabViewModel {
     var totalAttributedText: NSMutableAttributedString {
         if let total = total?.toDollarsString() {
             let attributedString = NSMutableAttributedString(string: "Total: ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0)])
-            let boldSection = NSMutableAttributedString(string: total, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15.0)])
+            let boldSection = NSMutableAttributedString(string: total, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15.0), NSAttributedString.Key.foregroundColor: UIColor.black])
             attributedString.append(boldSection)
             return attributedString
         } else {
@@ -55,7 +55,7 @@ class HomeTabViewModel {
     var amountPaidAttributedText: NSMutableAttributedString {
         if let amountPaid = amountPaid?.toDollarsString() {
             let attributedString = NSMutableAttributedString(string: "Paid: ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0)])
-            let boldSection = NSMutableAttributedString(string: amountPaid, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15.0)])
+            let boldSection = NSMutableAttributedString(string: amountPaid, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15.0), NSAttributedString.Key.foregroundColor: UIColor.black])
             attributedString.append(boldSection)
             return attributedString
         } else {
